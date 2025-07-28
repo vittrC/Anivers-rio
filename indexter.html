@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <title>Feliz Aniversário!</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      user-select: none;
+    }
+    body {
+      background: linear-gradient(to left, #190A05, #870000);
+      font-family: "Ubuntu", sans-serif;
+      color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 15px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .box {
+      background-color: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .box:hover {
+      transform: scale(1.03);
+      cursor: url('icone.png') 30 20, pointer;
+    }
+
+    .text {
+      grid-column: span 2;
+    }
+
+    iframe.spotify {
+      grid-column: span 4;
+      width: 100%;
+      border-radius: 12px;
+      height: 160px;
+      border: none;
+    }
+
+    /* Slideshow container */
+.slideshow-container {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  grid-column: span 2;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+  .fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+.slideshow-container img,
+.slideshow-container video {
+  width: 100%;
+  max-width: 600px;  
+  max-height: 300px; 
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+  </style>
+</head>
+<body>
+  <main class="grid">
+
+    <div class="box text">
+      <h1>Feliz Aniversário!</h1>
+      <p>.</p>
+      <p>Você é incrível!</p>
+    </div>
+
+    <div class="slideshow-container">
+
+  <div class="mySlides fade">
+    <img src="foto1.jpg" alt="Foto 1">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="foto2.jpg" alt="Foto 2">
+  </div>
+
+  <div class="mySlides fade">
+    <video src="foto3.mp4" controls autoplay loop muted></video>
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+
+    <div class="box">
+        <img src="imagem1.png" alt="tu" style="width:100%; border-radius:8px;">
+    </div>
+    <div class="box">
+        <img src="imagem2.png" alt="mim" style="width:100%; height:250px; border-radius:8px; object-fit:cover;">
+    </div>
+
+    <div class="box text">
+      <p>Continue brilhando e inspirando todos ao seu redor!</p>
+    </div>
+
+  <iframe class="spotify"
+    src="https://open.spotify.com/embed/track/1CXOLXa2ALavILZkMXvM5k?utm_source=generator&theme=0"
+    allowtransparency="true"
+    allow="encrypted-media">
+  </iframe>
+
+  </main>
+
+  <script>
+    let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+  </script>
+</body>
+</html>
